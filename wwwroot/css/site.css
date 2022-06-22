@@ -1,0 +1,68 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
+for details on configuring this project to bundle and minify static web assets. */
+
+/*toDoList*/
+.treeline .drop {
+    position: absolute;
+    left: -6px;
+    top: 5px;
+    width: 11px;
+    height: 11px;
+    line-height: 1em;
+    text-align: center;
+    background: #9F9F9F;
+    color: #fff; /* Фон и цвет кнопки, раскрывающей список */
+    font-size: 78%; /* Размер +/- */
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.treeline li:last-child > .drop {
+    margin-left: 1px;
+}
+
+.treeline .drop + ul {
+    display: none;
+}
+
+.treeline .dropM + ul {
+    display: block;
+}
+/*toDoList end*/
+
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

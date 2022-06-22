@@ -4,32 +4,21 @@
     ViewData["Title"] = "Главная";
 }
 
-<div id="content">
-    <div">
-            <ul>
-                  @foreach (var item in Model)
-                  {
-                  
-                      <li>
-                          <input type="hidden" value="@item.Title" />
-                      <input type="hidden" value="@item.Id" />
-
-                      <i class="toDoArrow"></i>
-                      <span>@item.Title</span>
-
-@*                      @if (item.SubProblems.Count() > 0)
-                      {
-                          <i class="toDoArrow"></i>
-                          <span>@item.Title</span>
-                      }
-                      else
-                      {
-                          <span noSubTasks">@item.Title</span>
-                      }*@
-                      </li>
-                  }
+  
+            <ul class="treeline">
+                
+                     @foreach (var item in Model)
+                     {
+                         
+                            <div class="drop">+</div>@item.Title /* Блок раскрытия списка */
+                            <li>
+                               <ul>
+                                 <li>Компоненты</li>
+                                 <li>Плагины</li>
+                                 <li>Модули</li>
+                               </ul>
+                            </li>@*главное меню*@
+                     }
+                
             </ul>
-    </div>
-    <div></div>
-</div>
 
