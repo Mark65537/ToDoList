@@ -1,28 +1,35 @@
-﻿@{
+﻿@model  IEnumerable<ToDoList21.Models.Problem>
+
+@{
     ViewData["Title"] = "Главная";
 }
 
 <div id="content">
-    <div class="column side">
-            <ul class="toDoItems">
+    <div">
+            <ul>
                   @foreach (var item in Model)
                   {
                   
-                      <li class="toDoItem">
-                      <input class="toDoItemId" type="hidden" value="@item.Id" />
-                      @if (item.SubTasks.Count() > 0)
+                      <li>
+                          <input type="hidden" value="@item.Title" />
+                      <input type="hidden" value="@item.Id" />
+
+                      <i class="toDoArrow"></i>
+                      <span>@item.Title</span>
+
+@*                      @if (item.SubProblems.Count() > 0)
                       {
                           <i class="toDoArrow"></i>
-                          <span class="toDoItemTitle">@item.Title</span>
+                          <span>@item.Title</span>
                       }
                       else
                       {
-                          <span class="toDoItemTitle noSubTasks">@item.Title</span>
-                      }
+                          <span noSubTasks">@item.Title</span>
+                      }*@
                       </li>
                   }
             </ul>
     </div>
-    <div class="column middle"></div>
+    <div></div>
 </div>
 

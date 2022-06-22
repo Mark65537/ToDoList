@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ToDoList21.Data;
 using ToDoList21.Models;
+using System.Linq;
 
 namespace ToDoList21.Controllers
 {
@@ -10,7 +11,8 @@ namespace ToDoList21.Controllers
         private readonly AppDBContext _appDBContext=new AppDBContext();
         public IActionResult Index()
         {
-            return View();
+            var model=_appDBContext.ProblemSet.ToList();
+            return View(model);
         }
 
         public ViewResult Create()

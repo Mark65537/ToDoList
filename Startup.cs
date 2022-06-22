@@ -50,7 +50,7 @@ namespace ToDoList21
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Problem}/{action=Create}/{id?}");
+                    template: "{controller=Problem}/{action=Index}/{id?}");
             });
         }
     }
