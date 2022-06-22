@@ -1,0 +1,35 @@
+﻿@model ToDoList21.Models.ProblemCreateViewModel
+
+@{
+    ViewData["Title"] = "Создать задачу";
+}
+
+<div>
+    <form asp-antiforgery="true" asp-action="Create" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <label asp-for="Title"></label>
+            <input asp-for="Title" />
+            <span asp-validation-for="Title"></span>
+        </div>
+        <div>
+            <label asp-for="Description"></label>
+            <input asp-for="Description" />
+            <span asp-validation-for="Description"></span>
+        </div>
+        <div>
+            <label asp-for="Executors"></label>
+            <input asp-for="Executors" />
+            <span asp-validation-for="Executors"></span>
+        </div>
+        <div>
+            <label asp-for="PlannedComplexityTime"></label>
+            <input asp-for="PlannedComplexityTime" />
+            <span asp-validation-for="PlannedComplexityTime"></span>
+        </div>
+        <div>
+            <input type="submit" value="Создать" />
+            <button type="submit" asp-controller="Problem" asp-action="Index">Назад</button>
+        </div>
+    </form>
+</div>

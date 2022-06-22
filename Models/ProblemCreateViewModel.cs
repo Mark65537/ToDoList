@@ -16,7 +16,7 @@ namespace ToDoList21.Models
         [Display(Name = "Executors")]
         public string Executors { get; set; }
 
-        [Display(Name = "Plan")]
+        [Display(Name = "PlannedComplexityTime")]
         public int PlannedComplexityTime { get; set; }
     }
 }
