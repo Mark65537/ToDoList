@@ -24,9 +24,7 @@ namespace ToDoList21
         public void ConfigureServices(IServiceCollection services)
         {
             #region DB
-            services.AddDbContext<AppDBContext>(options =>
-                     options.UseSqlServer(
-                         Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppDBContext>();
             #endregion
 
             services.AddMvc();

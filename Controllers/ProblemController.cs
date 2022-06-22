@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using ToDoList21.Data;
 using ToDoList21.Models;
 
@@ -6,7 +7,7 @@ namespace ToDoList21.Controllers
 {
     public class ProblemController: Controller
     {
-        private readonly AppDBContext _appDBContext;
+        private readonly AppDBContext _appDBContext=new AppDBContext();
         public IActionResult Index()
         {
             return View();
@@ -31,7 +32,8 @@ namespace ToDoList21.Controllers
                     Title = model.Title,
                     Description = model.Description,
                     Executors = model.Executors,
-                    PlannedComplexityTime = model.PlannedComplexityTime
+                    PlannedComplexityTime = model.PlannedComplexityTime,
+                    StartDate = DateTime.Now
                 };
 
                 TempData["Message"] = "Задача " + newProblem.Title + " успешно создана!";

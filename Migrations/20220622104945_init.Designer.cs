@@ -10,7 +10,7 @@ using ToDoList21.Data;
 namespace ToDoList21.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20220622093953_init")]
+    [Migration("20220622104945_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

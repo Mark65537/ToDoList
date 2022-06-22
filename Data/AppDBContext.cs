@@ -5,11 +5,13 @@ namespace ToDoList21.Data
 {
     public class AppDBContext : DbContext
     {
-        public AppDBContext(DbContextOptions<AppDBContext> options)
-              : base(options)
+        public AppDBContext()
+              : base()
         {
 
         }
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+         => options.UseSqlServer($"Server=(localdb)\\MSSQLLocalDB;Database=ProblemDB;Trusted_Connection=True;MultipleActiveResultSets=true");
         public DbSet<Problem> ProblemSet { get; set; }
     }
 }
