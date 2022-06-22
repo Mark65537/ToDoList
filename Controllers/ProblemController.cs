@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ToDoList21.Data;
 using ToDoList21.Models;
 
 namespace ToDoList21.Controllers
 {
     public class ProblemController: Controller
     {
+        private readonly AppDBContext _appDBContext;
         public IActionResult Index()
         {
             return View();
@@ -33,6 +35,9 @@ namespace ToDoList21.Controllers
                 };
 
                 TempData["Message"] = "Задача " + newProblem.Title + " успешно создана!";
+
+                _appDBContext.Add(newProblem);
+                _appDBContext.SaveChanges();
 
                 return RedirectToAction("Index");
             }

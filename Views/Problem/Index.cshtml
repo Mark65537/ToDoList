@@ -4,7 +4,24 @@
 
 <div id="content">
     <div class="column side">
-        
+            <ul class="toDoItems">
+                  @foreach (var item in Model)
+                  {
+                  
+                      <li class="toDoItem">
+                      <input class="toDoItemId" type="hidden" value="@item.Id" />
+                      @if (item.SubTasks.Count() > 0)
+                      {
+                          <i class="toDoArrow"></i>
+                          <span class="toDoItemTitle">@item.Title</span>
+                      }
+                      else
+                      {
+                          <span class="toDoItemTitle noSubTasks">@item.Title</span>
+                      }
+                      </li>
+                  }
+            </ul>
     </div>
     <div class="column middle"></div>
 </div>
