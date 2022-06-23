@@ -50,5 +50,17 @@ namespace ToDoList21.Controllers
 
             return View(model);
         }
+
+        public ViewResult Update(int id)
+        {
+            //var Problems ;
+
+            //if (Problems != null)
+            //{
+            //    return View(new ProblemUpdateViewModel(Problems));
+            //}
+
+            throw new NullReferenceException(message: "Задача не может быть изменена, так как не была найдена в БД");
+        }
     }
 }
