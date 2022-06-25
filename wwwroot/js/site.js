@@ -1,4 +1,31 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿(function () {
+    var ul = document.querySelectorAll('text');
+    for (var i = 0; i < ul.length; i++) {
+        var span = document.createElement('span');
+        span.className = 'drop';
+        span.innerHTML = '+'; // картинки лучше выравниваются, т.к. символы на одном браузере ровно выглядят, на другом — чуть съезжают 
+        ul[i].parentNode.insertBefore(span, ul[i]);
+        span.onclick = function () {
+            this.innerHTML = (this.innerHTML == '+' ? '−' : '+');
+            this.className = (this.className == 'drop' ? 'drop dropM' : 'drop');
+        }
+    }
+})();
 
-// Write your Javascript code.
+//для вывода описания
+var toDoItems = document.getElementsByClassName(".ProblemTitle")
+Array.from(toDoItems).forEach(toDo => toDo.addEventListener("click", async function ajaxDescription() {
+    jsonInput = toDo.parentElement.querySelector(".ProblemId").getAttribute("value")
+    $.ajax({
+        type: "GET",
+        url: "Problem/GetDescription",
+        dataType: "html",
+        data: {
+            jsonInput
+        },
+        success: function (data) {
+            $('.column.middle').empty()
+            $('.column.middle').append(data)
+        }
+    })
+}))

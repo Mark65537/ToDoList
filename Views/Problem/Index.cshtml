@@ -4,21 +4,39 @@
     ViewData["Title"] = "Главная";
 }
     <div class="column_RightBorder">
+            <button>Создать новую задачу</button>
             <ul class="treeline">
-                           @foreach (var item in Model)
-                           {
-                               <li>@item.Title
-@*                                 @if (item.SubProblems.Count() > 0)
-                                  {
-                                      <i></i>
-                                      <span>@item.Title</span>
-                                  }
-                                  else
-                                  {
-                                      <span>@item.Title</span>
-                                  }*@
-                               </li>
-                           }
+                  @foreach (var item in Model)
+                  {
+                      <li class="Arrow">
+                          <input class="ProblemId" type="hidden" value="@item.Id" />
+                          <text class="ProblemTitle">@item.Title</text>
+                          @if (item.SubProblems==null)
+                          {
+                              
+                          }
+       @*                                 @if (item.SubProblems.Count() > 0)
+                         {
+                             <i></i>
+                             <span>@item.Title</span>
+                         }
+                         else
+                         {
+                             <span>@item.Title</span>
+                         }*@
+                      </li>
+                  }
             </ul>
+    </div>
+
+    <div class="description">
+        описание
+        <div>
+            <button>Добавить подзадачу</button>
+            <button>Изменить</button>
+            <button>Удалить</button>
+            <button>Подробнее</button>
+        </div>
+        @*<text>@item.Title</text>*@
     </div>
 

@@ -1,52 +1,69 @@
-/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
-for details on configuring this project to bundle and minify static web assets. */
+@charset "UTF-8";
+body {
+  font-family: Arial, "Hevetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  padding: 9px;
+  /*min-width: 1170px;*/ /*Ð´Ð»Ñ ÑÐ¶Ð°Ñ‚Ð¸Ñ*/
+}
 
-.MainContainer{
-    max-width:1200px;
-    margin: 0px auto;
-    padding: 0px 15px;
+.MainContainer {
+  max-width: 1200px;
+  margin: 0px auto;
+  top: 15px;
 }
 
 .column_RightBorder {
-    width: 25%;
-    height: 100%;
-    border-right: 2px solid black;
+  width: 25%;
+  height: 100%;
+  border-right: 2px solid black;
 }
 
-li::marker {
+.description {
+  position: absolute;
+  top: 0;
+  left: 35%; /* Ð Ð°ÑÑÑ‚Ð¾ÑÐ½Ð¸Ðµ Ð¾Ñ‚ Ð»ÐµÐ²Ð¾Ð³Ð¾ ÐºÑ€Ð°Ñ */
+}
+
+/*
+.Arrow {
     content: ">";
+}*/
+/*li:before {
+
+}*/
+li::marker {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0.5em;
+  width: 15px;
+  height: 0;
+  border-bottom: 1px solid #333;
 }
 
+/*
 li:hover {
+    content: "------";
     color: green;
+}*/
+/*Ð°Ð°Ð¿Ñ‚Ð¸Ð²Ð½Ð°Ñ Ð²ÐµÑ€ÑÑ‚ÐºÐ°*/
+@media (max-width: 1200px) {
+  .container {
+    max-width: 970px;
+  }
 }
-
-body {
-    font-family: Arial,"Hevetica Neue", Arial, Helvetica, sans-serif;
-    font-size: 30px;
-    /*min-width: 1170px;*//*äëÿ ñæàòèÿ*/
+@media (max-width: 992px) {
+  .container {
+    max-width: 750px;
+  }
 }
-
-/*ààïòèâíàÿ âåðñòêà*/
-@media (max-width:1200px){
-    .container{
-        max-width:970px;
-    }
+@media (max-width: 767px) {
+  .container {
+    max-width: none;
+  }
 }
-
-@media (max-width:992px) {
-    .container {
-        max-width: 750px;
-    }
-}
-
-@media (max-width:767px) {
-    .container {
-        max-width: none;
-    }
-}
-/*àäàïòèâíàÿ âåðñòêà end*/
-
+/*Ð°Ð´Ð°Ð¿Ñ‚Ð¸Ð²Ð½Ð°Ñ Ð²ÐµÑ€ÑÑ‚ÐºÐ° end*/
 /*.li::before {
     content: ">";
     list-style: none;
@@ -58,25 +75,28 @@ body {
     border-bottom: 1px solid #ccc;
 }*/
 /*toDoList*/
-/*.treeline .drop {
-    position: absolute;
-    left: -6px;
-    top: 5px;
-    width: 11px;
-    height: 11px;
-    line-height: 1em;
-    text-align: center;
-    background: #9F9F9F;
-    color: #fff;*/ /* Ôîí è öâåò êíîïêè, ðàñêðûâàþùåé ñïèñîê */
-    /*font-size: 78%;*/ /* Ðàçìåð +/- */
-    /*cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-}*/
+.treeline .drop {
+  position: relative;
+  left: -0.5em;
+  /* top: .4em;  .2em (font-size: 80%;) + .2em (padding Ð¸Ð· .treeCSS li li) */
+  width: 0.9em;
+  height: 0.9em;
+  line-height: 0.9em;
+  text-align: center;
+  background: #fff;
+  font-size: 80%;
+  cursor: pointer;
+}
+.treeline .drop + ul {
+  display: none;
+}
+.treeline .dropM + ul {
+  display: block;
+}
 
-/*.treeline li::before > .drop {
-    margin-left: 1px;
-}*/
+.treeline li:last-child > .drop {
+  margin-left: 1px;
+}
 
 /*.treeline .drop + ul {
     display: none;
@@ -85,37 +105,40 @@ body {
 .treeline .dropM + ul {
     display: block;
 }*/
+/*.treeline li::before > .drop {
+    margin-left: 1px;
+}*/
+/*.treeline .drop + ul {
+    display: none;
+}
+
+.treeline .dropM + ul {
+    display: block;
+}*/
 /*toDoList end*/
-
-
-
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 /*.body-content {
     padding-left: 15px;
     padding-right: 15px;
 }*/
-
 /* Carousel */
 /*.carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
 }*/
-
 /* Make .svg files in the carousel display properly in older browsers */
 /*.carousel-inner .item img[src$=".svg"] {
     width: 100%;
 }*/
-
 /* QR code generator */
 /*#qrCode {
     margin: 15px;
 }*/
-
 /* Hide/rearrange for smaller screens */
 /*@media screen and (max-width: 767px) {*/
-    /* Hide captions */
-    /*.carousel-caption {
+/* Hide captions */
+/*.carousel-caption {
         display: none;
     }
 }*/

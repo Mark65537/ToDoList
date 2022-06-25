@@ -62,5 +62,17 @@ namespace ToDoList21.Controllers
 
             throw new NullReferenceException(message: "Задача не может быть изменена, так как не была найдена в БД");
         }
+
+        public PartialViewResult GetDescription(string jsonInput)
+        {
+            //var model = new ProblemDescriptionViewModel(int.Parse(jsonInput));
+
+            //if (model != null)
+            //{
+            //    return PartialView("_DisplayTaskDescriptionPartial", model);
+            //}
+            //else
+            throw new NullReferenceException();
+        }
     }
 }

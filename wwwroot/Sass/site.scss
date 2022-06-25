@@ -1,0 +1,166 @@
+﻿$body-font-size: 30px;
+$body-font: Arial,"Hevetica Neue", Arial, Helvetica, sans-serif;
+$column_RightBorder-width: 25%;
+
+body {
+    font-family: $body-font;
+    font-size: $body-font-size;
+    padding: 9px;
+    /*min-width: 1170px;*/ /*для сжатия*/
+}
+
+.MainContainer {
+    max-width: 1200px;
+    margin: 0px auto;
+    top: 15px;
+}
+
+.column_RightBorder {
+    width: $column_RightBorder-width;
+    height: 100%;
+    border-right: 2px solid black;
+}
+
+.description {
+    position: absolute;
+    top: 0;
+    left: $column_RightBorder-width+10%; /* Расстояние от левого края */
+}
+/*
+.Arrow {
+    content: ">";
+}*/
+/*li:before {
+
+}*/
+
+li::marker {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: .5em;
+    width: 15px;
+    height: 0;
+    border-bottom: 1px solid #333;
+}
+/*
+li:hover {
+    content: "------";
+    color: green;
+}*/
+
+
+
+/*ааптивная верстка*/
+@media (max-width:1200px) {
+    .container {
+        max-width: 970px;
+    }
+}
+
+@media (max-width:992px) {
+    .container {
+        max-width: 750px;
+    }
+}
+
+@media (max-width:767px) {
+    .container {
+        max-width: none;
+    }
+}
+/*адаптивная верстка end*/
+
+/*.li::before {
+    content: ">";
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.1em;
+    height: 0.7em;
+    border-bottom: 1px solid #ccc;
+}*/
+
+/*toDoList*/
+.treeline {
+    .drop {
+        position: relative;
+        left: -.5em;
+        /* top: .4em;  .2em (font-size: 80%;) + .2em (padding из .treeCSS li li) */
+        width: .9em;
+        height: .9em;
+        line-height: .9em;
+        text-align: center;
+        background: #fff;
+        font-size: 80%;
+        cursor: pointer;
+    }
+
+    .drop + ul {
+        display: none;
+    }
+
+    .dropM + ul {
+        display: block;
+    }
+}
+
+.treeline li:last-child > .drop {
+    margin-left: 1px;
+}
+
+/*.treeline .drop + ul {
+    display: none;
+}
+
+.treeline .dropM + ul {
+    display: block;
+}*/
+
+/*.treeline li::before > .drop {
+    margin-left: 1px;
+}*/
+
+/*.treeline .drop + ul {
+    display: none;
+}
+
+.treeline .dropM + ul {
+    display: block;
+}*/
+/*toDoList end*/
+
+
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+/*.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}*/
+
+/* Carousel */
+/*.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}*/
+
+/* Make .svg files in the carousel display properly in older browsers */
+/*.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}*/
+
+/* QR code generator */
+/*#qrCode {
+    margin: 15px;
+}*/
+
+/* Hide/rearrange for smaller screens */
+/*@media screen and (max-width: 767px) {*/
+/* Hide captions */
+/*.carousel-caption {
+        display: none;
+    }
+}*/
