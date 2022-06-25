@@ -20,6 +20,11 @@ namespace ToDoList21.Controllers
             return View(new ProblemCreateViewModel());
         }
 
+        public ViewResult Delete()
+        {
+            return View(new ProblemDeleteViewModel());
+        }
+
         [HttpPost]
         public IActionResult Create(
             [Bind("Title, Description, Executors, " +

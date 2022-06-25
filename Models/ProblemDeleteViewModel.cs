@@ -10,10 +10,10 @@ namespace ToDoList21.Models
         [Display(Name = "Description")]
         public string Description { get; set; }
 
-        public ProblemDeleteViewModel(Problem model)
-        {
-            Title = model.Title;
-            Description = model.Description;
-        }
+        //public ProblemDeleteViewModel(Problem model)
+        //{
+        //    Title = model.Title;
+        //    Description = model.Description;
+        //}
     }
 }

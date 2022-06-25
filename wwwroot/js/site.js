@@ -12,20 +12,34 @@
     }
 })();
 
-//для вывода описания
-var toDoItems = document.getElementsByClassName(".ProblemTitle")
-Array.from(toDoItems).forEach(toDo => toDo.addEventListener("click", async function ajaxDescription() {
-    jsonInput = toDo.parentElement.querySelector(".ProblemId").getAttribute("value")
-    $.ajax({
-        type: "GET",
-        url: "Problem/GetDescription",
-        dataType: "html",
-        data: {
-            jsonInput
-        },
-        success: function (data) {
-            $('.column.middle').empty()
-            $('.column.middle').append(data)
+(function () {
+    var pt = document.querySelectorAll(".ProblemTitle");
+    for (var i = 0; i < pt.length; i++) {
+        var title = pt[i].innerHTML;
+        pt[i].onclick = function () {
+            document.getElementById("description").innerHTML = title + '<div>'+
+               '<a href="Problem/Update">Изменить</a>'+
+               '<a href="Problem/Delete">Удалить</a>'+
+                '<a href="Problem/Description">Подробнее</a>' +
+                '<a href="Problem/CreateSubProblem">Добавить подзадачу</a>'+
+               '</div >' ;
         }
-    })
-}))
+    }
+})();
+//для вывода описания
+//var toDoItems = document.getElementsByClassName(".ProblemTitle")
+//Array.from(toDoItems).forEach(toDo => toDo.addEventListener("click", async function ajaxDescription() {
+//    jsonInput = toDo.parentElement.querySelector(".ProblemId").getAttribute("value")
+//    $.ajax({
+//        type: "GET",
+//        url: "Problem/GetDescription",
+//        dataType: "html",
+//        data: {
+//            jsonInput
+//        },
+//        success: function (data) {
+//            $('.column.middle').empty()
+//            $('.column.middle').append(data)
+//        }
+//    })
+//}))

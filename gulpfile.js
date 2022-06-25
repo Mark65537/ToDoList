@@ -18,3 +18,8 @@ gulp.task("sass", function () {
         .pipe(sass())
         .pipe(gulp.dest(paths.webroot + '/css'));
 });
+
+//gulp.task('watch', function () {//Слежение за Sass-файлами
+//    gulp.watch(path.webroot +'Sass/site.scss', ['sass']);
+//    // Другие отслеживания
+//})
