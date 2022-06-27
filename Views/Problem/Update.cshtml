@@ -1,32 +1,35 @@
 ﻿@model ToDoList21.Models.ProblemUpdateViewModel
 
 @{
-    ViewData["Title"] = "Редактирование " + Model.Title;
+    ViewData["Title"] = "Создать задачу";
 }
 
 <div>
-
+    <form asp-antiforgery="true" asp-action="Update" method="post">
+        <div asp-validation-summary="ModelOnly"></div>
+        @Html.HiddenFor(m => m.Id)
         <div>
-
+            @Html.LabelFor(m => m.Title)
+            @Html.EditorFor(m => m.Title)
+            @Html.ValidationMessageFor(m => m.Title)
         </div>
         <div>
-
+            @Html.LabelFor(m => m.Description)
+            @Html.EditorFor(m => m.Description)
         </div>
         <div>
-
+            @Html.LabelFor(m => m.Executors)
+            @Html.EditorFor(m => m.Executors)
         </div>
         <div>
-            <select asp-for="Status">
-            </select>
+@*            <label asp-for="Status"></label>
+            <select asp-for="Status"
+                    @*asp-items="(Model.Status)">
+            </select>*@
         </div>
         <div>
-
-        </div>
-        <div>
-
-        </div>
-        <div class="form-group">
-            <input type="submit" value="Сохранить" />
+            <input class="btn-success" type="submit" value="Изменить" />
             <button type="submit" asp-controller="Problem" asp-action="Index">Назад</button>
         </div>
+    </form>
 </div>

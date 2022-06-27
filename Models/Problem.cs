@@ -15,5 +15,10 @@ namespace ToDoList21.Models
         public int? FactTime { get; set; }
         public DateTime? FinishDate { get; set; }
         public virtual ICollection<Problem> SubProblems { get; set; }
+
+        public static explicit operator Problem(ProblemUpdateViewModel v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
