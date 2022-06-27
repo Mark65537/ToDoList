@@ -22,15 +22,15 @@ body {
   position: absolute;
   top: 0;
   left: 35%; /* Расстояние от левого края */
-}
-.description div > a {
-  display: inline-block; /* Строчно-блочный элемент */
-  background: #8C959D; /* Серый цвет фона */
-  color: #fff; /* Белый цвет текста */
-  padding: 1rem 1.5rem; /* Поля вокруг текста */
-  text-decoration: none; /* Убираем подчёркивание */
-  border-radius: 3px; /* Скругляем уголки */
-  margin-right: 10px;
+  /*div > a {
+      display: inline-block;*/ /* Строчно-блочный элемент */
+  /*background: #8C959D;*/ /* Серый цвет фона */
+  /*color: #fff;*/ /* Белый цвет текста */
+  /*padding: 1rem 1.5rem;*/ /* Поля вокруг текста */
+  /*text-decoration: none;*/ /* Убираем подчёркивание */
+  /*border-radius: 3px;*/ /* Скругляем уголки */
+  /*margin-right: 10px;
+  }*/
 }
 
 /*
@@ -83,6 +83,20 @@ li:hover {
     height: 0.7em;
     border-bottom: 1px solid #ccc;
 }*/
+.ProblemTitle {
+  cursor: pointer;
+}
+
+.abutton {
+  display: inline-block; /* Строчно-блочный элемент */
+  background: #8C959D; /* Серый цвет фона */
+  color: #fff; /* Белый цвет текста */
+  padding: 1rem 1.5rem; /* Поля вокруг текста */
+  text-decoration: none; /* Убираем подчёркивание */
+  border-radius: 3px; /* Скругляем уголки */
+  margin-right: 10px;
+}
+
 /*toDoList*/
 .treeline .drop {
   position: relative;
@@ -94,6 +108,7 @@ li:hover {
   text-align: center;
   background: #fff;
   font-size: 80%;
+  cursor: pointer;
 }
 .treeline .drop + ul {
   display: none;

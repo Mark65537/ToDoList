@@ -20,9 +20,30 @@ namespace ToDoList21.Controllers
             return View(new ProblemCreateViewModel());
         }
 
-        public ViewResult Delete()
+        public ViewResult Delete(int id)
         {
-            return View(new ProblemDeleteViewModel());
+            var model = _appDBContext.ProblemSet.First(x => x.Id == id);
+            return View(new ProblemDeleteViewModel(model));
+        }
+        [HttpPost]
+        public ActionResult Delete([Bind("id, Title")]  ProblemDeleteViewModel model)
+        {
+            if (ModelState.IsValid) {
+                var rprob = new Problem
+                {
+                    Id = model.id
+                };
+
+                _appDBContext.Remove(rprob);
+                _appDBContext.SaveChanges();
+
+                TempData["Message"] = "Задача " + rprob.Title + " успешно удалена!";
+
+                return RedirectToAction("Index");
+            }
+            TempData["Message"] = "Задача " + model.Title + " не может быть удалена!";
+
+            return RedirectToAction("Index");
         }
 
         [HttpPost]

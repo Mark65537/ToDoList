@@ -3,8 +3,8 @@
     <b>@Model.Title</b>
     <p>@Model.Description</p>
     <div class="buttons">
-        <a asp-controller="Problem" asp-action="Details" asp-route-id="@Model.Id">Подробнее</a>
-        <a asp-controller="Problem" asp-action="Update" asp-route-id="@Model.Id">Изменить</a>
-        <a asp-controller="Problem" asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
-        <a asp-controller="Problem" asp-action="AddSubTask" asp-route-id="@Model.Id">Добавить подзадачу</a>
+        <a class="abutton" asp-controller="Problem" asp-action="Details" asp-route-id="@Model.Id">Подробнее</a>
+        <a class="abutton" asp-controller="Problem" asp-action="Update" asp-route-id="@Model.Id">Изменить</a>
+        <a class="abutton" asp-controller="Problem" asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
+        <a class="abutton" asp-controller="Problem" asp-action="AddSubTask" asp-route-id="@Model.Id">Добавить подзадачу</a>
     </div>

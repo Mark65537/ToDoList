@@ -6,12 +6,7 @@
 
 <div>
     <form asp-antiforgery="true" asp-action="Delete" method="post">
-        <div>
-
-        </div>
-        <div>
-
-        </div>
+            <span>Вы действительно хотите удалить задачу "@Model.Title" ?</span>
         <div class="form-group">
             <input type="submit" value="Удалить" />
             <button type="submit" asp-controller="Problem" asp-action="Index">Назад</button>

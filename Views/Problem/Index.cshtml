@@ -4,7 +4,7 @@
     ViewData["Title"] = "Главная";
 }
     <div class="column_RightBorder">
-            <button>Создать новую задачу</button>
+        <a class="abutton" asp-controller="Problem" asp-action="Create">Создать новую задачу</a>            
             <ul class="treeline">
                   @foreach (var item in Model)
                   {
@@ -29,14 +29,6 @@
             </ul>
     </div>
 
-    <div id="description" class="description">
-@*        описание
-        <div>
-            <a href="Problem/CreateSubProblem">Добавить подзадачу</a>
-            <a href="Problem/Update">Изменить</a>
-            <a href="Problem/Delete">Удалить</a>
-            <a href="Problem/Description">Подробнее</a>   
-        </div>*@
-        @*<text>@item.Title</text>*@
+    <div class="description">
     </div>
 
