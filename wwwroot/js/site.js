@@ -12,34 +12,44 @@
     }
 })();
 
-(function () {
-    var pt = document.querySelectorAll(".ProblemTitle");
-    for (var i = 0; i < pt.length; i++) {
-        var title = pt[i].innerHTML;
-        pt[i].onclick = function () {
-            document.getElementById("description").innerHTML = title + '<div>'+
-               '<a href="Problem/Update">Изменить</a>'+
-               '<a href="Problem/Delete">Удалить</a>'+
-                '<a href="Problem/Description">Подробнее</a>' +
-                '<a href="Problem/CreateSubProblem">Добавить подзадачу</a>'+
-               '</div >' ;
-        }
-    }
-})();
+//(function () {
+//    var pt = document.querySelectorAll(".ProblemTitle");
+//    for (var i = 0; i < pt.length; i++) {
+//        var title = pt[i].innerHTML;
+//        pt[i].onclick = function () {
+//            document.getElementById("description").innerHTML = title + '<div>'+
+//               '<a href="Problem/Update">Изменить</a>'+
+//               '<a href="Problem/Delete">Удалить</a>'+
+//                '<a href="Problem/Description">Подробнее</a>' +
+//                '<a href="Problem/CreateSubProblem">Добавить подзадачу</a>'+
+//               '</div >' ;
+//        }
+//    }
+//})();
 //для вывода описания
-//var toDoItems = document.getElementsByClassName(".ProblemTitle")
+//var toDoItems = document.getElementsByClassName("ProblemTitle")
+////jsonInput = toDoItems[0].parentElement.querySelector(".ProblemId").getAttribute("value")
 //Array.from(toDoItems).forEach(toDo => toDo.addEventListener("click", async function ajaxDescription() {
-//    jsonInput = toDo.parentElement.querySelector(".ProblemId").getAttribute("value")
+//    //jsonInput = toDo.parentElement.querySelector(".ProblemId").getAttribute("value")
 //    $.ajax({
 //        type: "GET",
 //        url: "Problem/GetDescription",
 //        dataType: "html",
 //        data: {
-//            jsonInput
+//            //jsonInput
 //        },
-//        success: function (data) {
-//            $('.column.middle').empty()
-//            $('.column.middle').append(data)
-//        }
+//        //success: function (data) {
+//        //    $('.description').empty()
+//        //    $('.description').append(data)
+//        //}
 //    })
 //}))
+
+$(document).ready(function () {
+    $('.ProblemTitle').click(function (e) {
+        e.preventDefault();
+        var id=this.parentElement.querySelector(".ProblemId").getAttribute("value")
+        //id = encodeURIComponent(id);
+        $('.description').load('Problem/GetDescription?id=' + id)
+    });
+});
