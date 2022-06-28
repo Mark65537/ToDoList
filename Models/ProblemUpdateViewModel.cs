@@ -29,6 +29,7 @@ namespace ToDoList21.Models
 
         [Display(Name = "FactTime")]
         public int? FactTime { get; set; }
+        public int? ProblemId { get; set; }
         public ProblemUpdateViewModel()
         {
         }

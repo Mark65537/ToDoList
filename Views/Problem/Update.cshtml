@@ -1,4 +1,5 @@
 ﻿@model ToDoList21.Models.ProblemUpdateViewModel
+@using ToDoList21.Helpers
 
 @{
     ViewData["Title"] = "Создать задачу";
@@ -22,10 +23,10 @@
             @Html.EditorFor(m => m.Executors)
         </div>
         <div>
-@*            <label asp-for="Status"></label>
+            <label asp-for="Status"></label>
             <select asp-for="Status"
-                    @*asp-items="(Model.Status)">
-            </select>*@
+                    asp-items="Html.updateModelSelectListItem(Model)">
+            </select>
         </div>
         <div>
             <input class="btn-success" type="submit" value="Изменить" />

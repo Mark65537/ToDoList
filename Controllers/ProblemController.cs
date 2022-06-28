@@ -86,13 +86,27 @@ namespace ToDoList21.Controllers
             {
                 var upProblem = new Problem
                 {
-                    Id=model.Id,//обязательно
+                    Id = model.Id,//обязательно
                     Title = model.Title,
                     Description = model.Description,
-                    Executors = model.Executors
+                    Executors = model.Executors,
+                    Status = model.Status,
+                    FinishDate = model.Status==ProblemStatus.DONE ? model.FinishDate : null 
                 };
 
                 _appDBContext.Update(upProblem);
+                if (model.Status == ProblemStatus.DONE)
+                {
+                    var list= _appDBContext.ProblemSet.Where(x => x.ProblemId == model.Id).ToList();
+                    if (list.Any())
+                    {
+                        foreach (var l in list)
+                        {
+                            l.Status = ProblemStatus.DONE;
+                            _appDBContext.Update(l);
+                        }
+                    }
+                }
                 _appDBContext.SaveChanges();
 
                 TempData["Message"] = "Задача " + model.Title + " изменена!";
@@ -125,21 +139,6 @@ namespace ToDoList21.Controllers
                 };
                 _appDBContext.Add(newProblem);
                 _appDBContext.SaveChanges();
-
-                //var m2 = _appDBContext.ProblemSet.First(x => x.Title.Equals(model.Title));
-                //m.ProblemId = m2.Id;
-                ////var upProblem = new Problem
-                ////{
-                ////    Id = m.ProblemId,
-                ////    Title = m.Title,
-                ////    Description = m.Description,
-                ////    Executors = m.Executors,
-                ////    PlannedComplexityTime = m.PlannedComplexityTime,
-                ////    StartDate = m.StartDate,
-                ////    ProblemId = model.Id
-                ////};
-                //_appDBContext.Update(m);
-                //_appDBContext.SaveChanges();
 
                 TempData["Message"] = "Задача " + newProblem.Title + " успешно создана!";
 

@@ -11,6 +11,8 @@ namespace ToDoList21.Models
 
         public DateTime StartDate { get; set; }
 
+        public DateTime FinishDate { get; set; }
+
         public int ProblemId { get; set; }
 
         public ProblemDescriptionViewModel(Problem model)
@@ -19,6 +21,7 @@ namespace ToDoList21.Models
             Title = model.Title;
             Description = model.Description;
             StartDate = model.StartDate;
+            FinishDate = model.FinishDate;
         }
     }
 }
