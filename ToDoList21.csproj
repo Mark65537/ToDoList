@@ -5,7 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Remove="Resources\Models\ProblemCreateViewModel.ru.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="gulpfile.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Models\ProblemCreateViewModel.ru.resx" />
   </ItemGroup>
 
   <ItemGroup>

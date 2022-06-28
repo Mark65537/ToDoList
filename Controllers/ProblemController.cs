@@ -105,7 +105,6 @@ namespace ToDoList21.Controllers
         }
         public ActionResult GetDescription(string id)//важно что бы имя совпадало
         {
-
             if (!string.IsNullOrEmpty(id))
             {
                 var model = _appDBContext.ProblemSet.First(x => x.Id == int.Parse(id));
@@ -116,7 +115,7 @@ namespace ToDoList21.Controllers
             }
             throw new NullReferenceException();
         }
-        public ViewResult AddSubTask(int id)
+        public ViewResult AddSubProblem(int id)
         {
             //var model = _appDBContext.ProblemSet.First(x => x.Id == int.Parse(id));
 
