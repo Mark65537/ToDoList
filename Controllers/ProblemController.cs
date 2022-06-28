@@ -85,27 +85,23 @@ namespace ToDoList21.Controllers
         {
             if (ModelState.IsValid)
             {
-
-                var upProblem = new Problem
-                {
-                    Id = model.Id,//обязательно
-                    Title = model.Title,
-                    Description = model.Description,
-                    Executors = model.Executors,
-                    Status = model.Status,
-                    FinishDate = model.Status==ProblemStatus.DONE ? DateTime.Now : model.FinishDate 
-                };
+                var upProblem = _appDBContext.ProblemSet.First(x => x.Id == model.Id);
+                upProblem.Title = model.Title;
+                upProblem.Description = model.Description;
+                upProblem.Executors = model.Executors;
+                upProblem.Status = model.Status;
+                upProblem.FinishDate = model.Status == ProblemStatus.DONE ? DateTime.Now : model.FinishDate;
 
                 _appDBContext.Update(upProblem);
                 if (model.Status == ProblemStatus.DONE)
                 {
-                    var list= _appDBContext.ProblemSet.Where(x => x.ProblemId == model.Id).ToList();
+                    var list = _appDBContext.ProblemSet.Where(x => x.ProblemId == model.Id);
                     if (list.Any())
                     {
                         foreach (var l in list)
                         {
                             l.Status = ProblemStatus.DONE;
-                            l.FinishDate = model.FinishDate;
+                            l.FinishDate = DateTime.Now;
                             _appDBContext.Update(l);
                         }
                     }

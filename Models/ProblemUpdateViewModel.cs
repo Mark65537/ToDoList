@@ -20,6 +20,11 @@ namespace ToDoList21.Models
 
         [Display(Name = "Status")]
         public ProblemStatus Status { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}",
+     ApplyFormatInEditMode = true)]
+        [Display(Name = "StartDate")]
+        public DateTime StartDate { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd.MM.yyyy}",
@@ -39,6 +44,7 @@ namespace ToDoList21.Models
             Description = model.Description;
             Executors = model.Executors;
             Status = model.Status;
+            StartDate = model.StartDate;
             FinishDate = model.FinishDate;
             FactTime = model.FactTime;
         }
