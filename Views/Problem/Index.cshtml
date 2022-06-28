@@ -10,20 +10,15 @@
                   {
                       <li class="Arrow">
                           <input class="ProblemId" type="hidden" value="@item.Id" />
-                          <text class="ProblemTitle">@item.Title</text>
-                          @if (item.SubProblems==null)
-                          {
-                              
-                          }
-       @*                                 @if (item.SubProblems.Count() > 0)
+                          
+                         @if (item.ProblemId==null)
                          {
-                             <i></i>
-                             <span>@item.Title</span>
+                              <i class="ProblemTitle">@item.Title</i>
                          }
                          else
                          {
-                             <span>@item.Title</span>
-                         }*@
+                             @*<span>@item.Title</span>*@
+                         }
                       </li>
                   }
             </ul>

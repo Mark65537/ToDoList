@@ -5,7 +5,7 @@ namespace ToDoList21.Models
     public class ProblemDeleteViewModel
     {
         [Display(Name = "id")]
-        public int id { get; set; }
+        public int? id { get; set; }
 
         [Display(Name = "Title")]
         public string Title { get; set; }

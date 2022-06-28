@@ -1,5 +1,5 @@
 ﻿(function () {
-    var ul = document.querySelectorAll('text');
+    var ul = document.querySelectorAll('.ProblemTitle');
     for (var i = 0; i < ul.length; i++) {
         var span = document.createElement('span');
         span.className = 'drop';

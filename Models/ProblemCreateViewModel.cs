@@ -4,6 +4,8 @@ namespace ToDoList21.Models
 {
     public class ProblemCreateViewModel
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Необходимо ввести название")]
         [StringLength(126, MinimumLength = 3,
             ErrorMessage = "Название должно содержать не менее 3 и не более 126 символов")]
@@ -18,5 +20,16 @@ namespace ToDoList21.Models
 
         [Display(Name = "PlannedComplexityTime")]
         public int PlannedComplexityTime { get; set; }
+        public int ProblemId { get; set; }
+        public ProblemCreateViewModel()
+        {
+        }
+        public ProblemCreateViewModel(int ProblemId)
+        {
+            this.ProblemId= ProblemId;
+        }
+        public ProblemCreateViewModel(Problem model)
+        {
+        }
     }
 }

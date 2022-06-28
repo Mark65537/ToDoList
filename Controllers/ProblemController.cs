@@ -103,6 +103,53 @@ namespace ToDoList21.Controllers
 
             return RedirectToAction("Index");
         }
+        public ViewResult AddSubProblem(int ProblemId)
+        {
+            return View(new ProblemCreateViewModel(ProblemId));
+        }
+        [HttpPost]
+        public ActionResult AddSubProblem(ProblemCreateViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //var m = _appDBContext.ProblemSet.First(x => x.Id == model.ProblemId);
+
+                var newProblem = new Problem
+                {
+                    Title = model.Title,
+                    Description = model.Description,
+                    Executors = model.Executors,
+                    PlannedComplexityTime = model.PlannedComplexityTime,
+                    StartDate = DateTime.Now,
+                    ProblemId = model.ProblemId
+                };
+                _appDBContext.Add(newProblem);
+                _appDBContext.SaveChanges();
+
+                //var m2 = _appDBContext.ProblemSet.First(x => x.Title.Equals(model.Title));
+                //m.ProblemId = m2.Id;
+                ////var upProblem = new Problem
+                ////{
+                ////    Id = m.ProblemId,
+                ////    Title = m.Title,
+                ////    Description = m.Description,
+                ////    Executors = m.Executors,
+                ////    PlannedComplexityTime = m.PlannedComplexityTime,
+                ////    StartDate = m.StartDate,
+                ////    ProblemId = model.Id
+                ////};
+                //_appDBContext.Update(m);
+                //_appDBContext.SaveChanges();
+
+                TempData["Message"] = "Задача " + newProblem.Title + " успешно создана!";
+
+                return RedirectToAction("Index");
+            }
+
+            TempData["Message"] = "Задача " + model.Title + " не может быть создана!";
+
+            return View(model);
+        }
         public ActionResult GetDescription(string id)//важно что бы имя совпадало
         {
             if (!string.IsNullOrEmpty(id))
@@ -114,15 +161,6 @@ namespace ToDoList21.Controllers
                 }
             }
             throw new NullReferenceException();
-        }
-        public ViewResult AddSubProblem(int id)
-        {
-            //var model = _appDBContext.ProblemSet.First(x => x.Id == int.Parse(id));
-
-            //ViewData["TerminalId"] = model.Id;
-            //ViewData["TerminalTitle"] = model.Title;
-
-            return View(new ProblemCreateViewModel());
         }
     }
 }

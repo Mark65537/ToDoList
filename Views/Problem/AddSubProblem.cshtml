@@ -1,12 +1,13 @@
 ﻿@model ToDoList21.Models.ProblemCreateViewModel
 
 @{
-    ViewData["Title"] = "Создать задачу";
+    ViewData["Title"] = "Создать подзадачу";
 }
 
 <div>
-    <form asp-antiforgery="true" asp-action="Create" method="post">
+    <form asp-antiforgery="true" asp-action="AddSubProblem" method="post">
         <div asp-validation-summary="ModelOnly"></div>
+        <input type="hidden" asp-for="Id" />
         <div>
             <label asp-for="Title"></label>
             <input asp-for="Title" />
@@ -24,8 +25,11 @@
         </div>
         <div>
             <label asp-for="PlannedComplexityTime"></label>
-            <input type="hidden" asp-for="PlannedComplexityTime" />
+            <input asp-for="PlannedComplexityTime" />
             <span asp-validation-for="PlannedComplexityTime"></span>
+        </div>
+        <div>
+            <input type="hidden" asp-for="ProblemId" />
         </div>
         <div>
             <input class="btn-success" type="submit" value="Создать" />
