@@ -12,24 +12,24 @@
 ////    }
 ////})();
 
-$(document).ready(function () {
-    $('.drop').click(function (e) {
-        e.preventDefault();
-        this.innerHTML = (this.innerHTML == '+' ? '−' : '+');
-        this.className = (this.className == 'drop' ? 'drop dropM' : 'drop');
-        var id = this.parentElement.querySelector(".ProblemId").getAttribute("value")
-        //console.log($(this).find(".SubProblemContainer"))
-        if (this.innerHTML == '−') {
-            $(this).next().next().load('Problem/GetSubProblems?id=' + id)
-            //$(this).next().next().click(function (e) {
-            //    e.preventDefault();
-            //    var id = this.parentElement.querySelector(".ProblemId").getAttribute("value")
-            //    //id = encodeURIComponent(id);
-            //    $('.description').load('Problem/GetDescription?id=' + id)
-            //});
-        }        
-    });
-});
+//$(document).ready(function () {
+//    $('.drop').click(function (e) {
+//        e.preventDefault();
+//        this.innerHTML = (this.innerHTML == '+' ? '−' : '+');
+//        this.className = (this.className == 'drop' ? 'drop dropM' : 'drop');
+//        var id = this.parentElement.querySelector(".ProblemId").getAttribute("value")
+//        //console.log($(this).find(".SubProblemContainer"))
+//        if (this.innerHTML == '−') {
+//            $(this).next().next().load('Problem/GetSubProblems?id=' + id)
+//            //$(this).next().next().click(function (e) {
+//            //    e.preventDefault();
+//            //    var id = this.parentElement.querySelector(".ProblemId").getAttribute("value")
+//            //    //id = encodeURIComponent(id);
+//            //    $('.description').load('Problem/GetDescription?id=' + id)
+//            //});
+//        }        
+//    });
+//});
 //(function () {
 //    var pt = document.querySelectorAll(".ProblemTitle");
 //    for (var i = 0; i < pt.length; i++) {
@@ -89,6 +89,21 @@ $(document).ready(function () {
             var id = e.target.parentElement.querySelector(".ProblemId").getAttribute("value")
             //id = encodeURIComponent(id);
             $('.description').load('Problem/GetDescription?id=' + id)
+        } else if (e.target.className === 'drop') {
+            e.preventDefault();
+            e.target.innerHTML = (e.target.innerHTML == '+' ? '−' : '+');
+            e.target.className = (e.target.className == 'drop' ? 'drop dropM' : 'drop');
+            var id = e.target.parentElement.querySelector(".ProblemId").getAttribute("value")
+            //console.log($(this).find(".SubProblemContainer"))
+            if (e.target.innerHTML == '−') {
+                $(e.target).next().next().load('Problem/GetSubProblems?id=' + id)
+                //$(this).next().next().click(function (e) {
+                //    e.preventDefault();
+                //    var id = this.parentElement.querySelector(".ProblemId").getAttribute("value")
+                //    //id = encodeURIComponent(id);
+                //    $('.description').load('Problem/GetDescription?id=' + id)
+                //});
+            }
         }
     });
 });
