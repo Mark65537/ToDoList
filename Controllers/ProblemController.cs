@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ToDoList21.Data;
 using ToDoList21.Models;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace ToDoList21.Controllers
 {
@@ -84,6 +85,7 @@ namespace ToDoList21.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var upProblem = new Problem
                 {
                     Id = model.Id,//обязательно
@@ -91,7 +93,7 @@ namespace ToDoList21.Controllers
                     Description = model.Description,
                     Executors = model.Executors,
                     Status = model.Status,
-                    FinishDate = model.Status==ProblemStatus.DONE ? model.FinishDate : null 
+                    FinishDate = model.Status==ProblemStatus.DONE ? DateTime.Now : model.FinishDate 
                 };
 
                 _appDBContext.Update(upProblem);
@@ -103,6 +105,7 @@ namespace ToDoList21.Controllers
                         foreach (var l in list)
                         {
                             l.Status = ProblemStatus.DONE;
+                            l.FinishDate = model.FinishDate;
                             _appDBContext.Update(l);
                         }
                     }
@@ -126,8 +129,6 @@ namespace ToDoList21.Controllers
         {
             if (ModelState.IsValid)
             {
-                //var m = _appDBContext.ProblemSet.First(x => x.Id == model.ProblemId);
-
                 var newProblem = new Problem
                 {
                     Title = model.Title,
@@ -160,6 +161,21 @@ namespace ToDoList21.Controllers
                 }
             }
             throw new NullReferenceException();
+        }
+        //GetSubProblems
+        public ActionResult GetSubProblems(string id)//важно что бы имя совпадало
+        {
+            if (!string.IsNullOrEmpty(id))
+            {
+                var model = _appDBContext.ProblemSet.Where(x => x.ProblemId == int.Parse(id));
+                //var model = _appDBContext.ProblemSet.ToList();
+                if (model != null && model.Any())
+                {
+                    return PartialView("_DisplaySubProblemsPartial",model);//модель должна совпадать
+                }
+            }
+            return null;
+            //throw new NullReferenceException();
         }
     }
 }

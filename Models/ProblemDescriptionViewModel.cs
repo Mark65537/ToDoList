@@ -11,7 +11,7 @@ namespace ToDoList21.Models
 
         public DateTime StartDate { get; set; }
 
-        public DateTime FinishDate { get; set; }
+        public DateTime? FinishDate { get; set; }
 
         public int ProblemId { get; set; }
 

@@ -9,16 +9,24 @@
                   @foreach (var item in Model)
                   {
                       <li class="Arrow">
-                          <input class="ProblemId" type="hidden" value="@item.Id" />
-                          
+                          <input class="ProblemId" type="hidden" value="@item.Id" />                          
                          @if (item.ProblemId==null)
                          {
-                              <i class="ProblemTitle">@item.Title</i>
+                             <span class="drop">+</span>
+                             <i class="ProblemTitle">@item.Title</i>
+                             <div class="SubProblemContainer"></div>
+@*                             <ul>
+                                 <li>
+                                     <input class="ProblemId" type="hidden" value="@item.Id" /> 
+                                     <i class="ProblemTitle">@item.Title</i>
+                                 </li>
+                             </ul>
+                              @await Html.PartialAsync("_DisplaySubProblemsPartial", item.ProblemId)*@
                          }
-                         else
+@*                         else
                          {
-                             @*<span>@item.Title</span>*@
-                         }
+                             <i class="ProblemTitle">@item.Title</i>
+                         }*@
                       </li>
                   }
             </ul>

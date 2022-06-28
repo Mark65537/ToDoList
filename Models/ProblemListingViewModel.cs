@@ -7,14 +7,18 @@ namespace ToDoList21.Models
     {
         public string Title { get; set; }
 
+        public int? ProblemId { get; set; }
+
         public virtual List<ProblemListingViewModel> SubProblems { get; set; }
 
-
+        public ProblemListingViewModel()
+        {
+        }
         public ProblemListingViewModel(Problem model)
         {
             Title = model.Title;
 
-            if (model.SubProblems != null && model.SubProblems.Any())
+            if (model.ProblemId != null)
             {
                 SubProblems = model.SubProblems.Select(s => new ProblemListingViewModel(s)).ToList();
             }

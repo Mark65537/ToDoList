@@ -1,0 +1,24 @@
+﻿@model  IEnumerable<ToDoList21.Models.Problem>
+         
+           <ul class="treeline">
+                  @foreach (var item in Model)
+                  {
+                      <li class="Arrow">
+                          <input class="ProblemId" type="hidden" value="@item.Id" />                          
+                         @if (item.ProblemId==null)
+                         {
+                             <span class="drop">+</span>
+                             <i class="ProblemTitle">@item.Title</i>
+                             <div class="SubProblemContainer"></div>
+@*                              @await Html.PartialAsync("_DisplaySubProblemsPartial", item.ProblemId)*@
+                         }
+                         else
+                         {
+                             <i class="ProblemTitle">@item.Title</i>
+                         }
+                      </li>
+                  }
+            </ul>
+
+
+

@@ -2,7 +2,7 @@
     
 
     <div class="buttons">
-        @if(@Model.FinishDate!=null){
+        @if(@Model.FinishDate==null){
          <a class="abutton" asp-controller="Problem" asp-action="Update" asp-route-id="@Model.Id">Изменить</a>
         }        
         <a class="abutton" asp-controller="Problem" asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
