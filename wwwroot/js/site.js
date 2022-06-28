@@ -62,24 +62,33 @@ $(document).ready(function () {
 //        //}
 //    })
 //}))
-$(document).find('.ProblemTitle').click(function(e){
-    $('.description').append("halo");
-})
-$('.ProblemTitle').on('mouseover', '.description', function () {
-    $('.description').append("halo");
-});
+//$(document).find('.ProblemTitle').click(function(e){
+//    $('.description').append("halo");
+//})
+//$('.ProblemTitle').on('mouseover', '.description', function () {
+//    $('.description').append("halo");
+//});
+
+//$('.column_RightBorder').on('click', function () {
+//    if (event.target.className === 'buttonClass') { // Step 3
+//        console.log('Click!');
+//    }
+//    $('.description').append("halo");
+//});
 //$('.ProblemTitle').on(function (e) {
 //    e.preventDefault();
 //    var id = this.parentElement.querySelector(".ProblemId").getAttribute("value")
 //    //id = encodeURIComponent(id);
 //    $('.description').load('Problem/GetDescription?id=' + id)
 //});
-
+//по другому при аяксе не работает
 $(document).ready(function () {
-    $('.ProblemTitle').click(function (e) {
-        e.preventDefault();
-        var id=this.parentElement.querySelector(".ProblemId").getAttribute("value")
-        //id = encodeURIComponent(id);
-        $('.description').load('Problem/GetDescription?id=' + id)
+    $('.column_RightBorder').on("click", function (e) {
+        if (e.target.className === 'ProblemTitle') {
+            e.preventDefault();
+            var id = e.target.parentElement.querySelector(".ProblemId").getAttribute("value")
+            //id = encodeURIComponent(id);
+            $('.description').load('Problem/GetDescription?id=' + id)
+        }
     });
 });
