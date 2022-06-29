@@ -4,9 +4,10 @@
     <div class="buttons">
         @if(@Model.FinishDate==null){
          <a class="abutton" asp-controller="Problem" asp-action="Update" asp-route-id="@Model.Id">Изменить</a>
+         <a class="abutton" asp-controller="Problem" asp-action="AddSubProblem" asp-route-ProblemId="@Model.Id">Добавить подзадачу</a>
         }        
         <a class="abutton" asp-controller="Problem" asp-action="Delete" asp-route-id="@Model.Id">Удалить</a>
-        <a class="abutton" asp-controller="Problem" asp-action="AddSubProblem" asp-route-ProblemId="@Model.Id">Добавить подзадачу</a>
+        
     </div>
     <p>Дата создания: @Model.StartDate</p>
     @if(@Model.FinishDate!=null){

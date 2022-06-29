@@ -18,7 +18,10 @@
     <meta name="viewport" content="width=device-width" />@*адаптивная верстка*@
 </head>
 <body>
-
+    @if (TempData["Message"] != null)
+    {
+        <h2 class="message">@TempData["Message"]</h2>
+    }
     <div class="MainContainer">
         @RenderBody()
         <hr />

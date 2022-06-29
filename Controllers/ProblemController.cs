@@ -12,6 +12,7 @@ namespace ToDoList21.Controllers
         private readonly AppDBContext _appDBContext=new AppDBContext();
         public IActionResult Index()
         {
+            TempData["Message"] = null;
             var model=_appDBContext.ProblemSet.ToList();
             return View(model);
         }
@@ -139,6 +140,11 @@ namespace ToDoList21.Controllers
                     StartDate = DateTime.Now,
                     ProblemId = model.ProblemId
                 };
+                if (_appDBContext.ProblemSet.Any(x=>x.Title.Equals(model.Title)))
+                {
+                    TempData["Message"] = "Подзадача " + newProblem.Title + " не может быть создана так как уже существует!";
+                    return View(model);
+                }
                 _appDBContext.Add(newProblem);
                 _appDBContext.SaveChanges();
 
