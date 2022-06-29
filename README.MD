@@ -27,4 +27,4 @@
 </p> Дата завершения
 
 <h1>Используемые технологии</h1>
-ASP.NET, Razor, gulp, scss, адаптивная верстка, partial view
+ASP.NET, Razor, gulp, scss, адаптивная верстка, partial view, Entity Framework, JQuery, Ajax 
