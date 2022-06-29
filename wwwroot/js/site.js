@@ -89,13 +89,15 @@ $(document).ready(function () {
             var id = e.target.parentElement.querySelector(".ProblemId").getAttribute("value")
             //id = encodeURIComponent(id);
             $('.description').load('Problem/GetDescription?id=' + id)
-        } else if (e.target.className === 'drop') {
+        } else if (e.target.className.includes('drop')) {
             e.preventDefault();
             e.target.innerHTML = (e.target.innerHTML == '+' ? '−' : '+');
             e.target.className = (e.target.className == 'drop' ? 'drop dropM' : 'drop');
             var id = e.target.parentElement.querySelector(".ProblemId").getAttribute("value")
             if (e.target.innerHTML == '−') {
                 $(e.target).next().next().load('Problem/GetSubProblems?id=' + id)
+            } else if (e.target.innerHTML == '+') {
+                $(e.target).next().next().empty()
             }
         }
     });

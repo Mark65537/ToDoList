@@ -120,11 +120,11 @@ li:hover {
         cursor: pointer;
     }
 
-    .drop + ul {
+    .drop .SubProblemContainer {
         display: none;
     }
 
-    .dropM + ul {
+    .dropM > ul {
         display: block;
     }
 }

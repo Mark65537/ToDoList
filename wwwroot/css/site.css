@@ -110,10 +110,10 @@ li:hover {
   font-size: 80%;
   cursor: pointer;
 }
-.treeline .drop + ul {
+.treeline .drop > ul {
   display: none;
 }
-.treeline .dropM + ul {
+.treeline .dropM > ul {
   display: block;
 }
 
