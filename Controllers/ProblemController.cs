@@ -85,12 +85,17 @@ namespace ToDoList21.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 var upProblem = _appDBContext.ProblemSet.First(x => x.Id == model.Id);
+
+                
                 upProblem.Title = model.Title;
                 upProblem.Description = model.Description;
                 upProblem.Executors = model.Executors;
                 upProblem.Status = model.Status;
                 upProblem.FinishDate = model.Status == ProblemStatus.DONE ? DateTime.Now : model.FinishDate;
+                upProblem.FactTime = model.Status == ProblemStatus.DONE ? 
+                                          (upProblem.FinishDate - upProblem.StartDate).Value.Days : model.FactTime;
 
                 _appDBContext.Update(upProblem);
                 if (model.Status == ProblemStatus.DONE)

@@ -13,6 +13,8 @@ namespace ToDoList21.Models
 
         public DateTime? FinishDate { get; set; }
 
+        public int? FactTime { get; set; }
+
         public int ProblemId { get; set; }
 
         public ProblemDescriptionViewModel(Problem model)
@@ -22,6 +24,7 @@ namespace ToDoList21.Models
             Description = model.Description;
             StartDate = model.StartDate;
             FinishDate = model.FinishDate;
+            FactTime = model.FactTime;
         }
     }
 }
