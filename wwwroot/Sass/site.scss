@@ -1,12 +1,13 @@
-﻿$body-font-size: 30px;
+﻿$body-padding: 9px;
+$body-font-size: 30px;
 $body-font: Arial,"Hevetica Neue", Arial, Helvetica, sans-serif;
 $column_RightBorder-width: 25%;
+
 
 body {
     font-family: $body-font;
     font-size: $body-font-size;
-    padding: 9px;
-    /*min-width: 1170px;*/ /*для сжатия*/
+    padding: $body-padding;
 }
 
 .MainContainer {
@@ -23,42 +24,48 @@ body {
 
 .description {
     position: absolute;
-    top: 0;
+    top: $body-padding;
     left: $column_RightBorder-width+10%; /* Расстояние от левого края */
     /*div > a {
         display: inline-block;*/ /* Строчно-блочный элемент */
-        /*background: #8C959D;*/ /* Серый цвет фона */
-        /*color: #fff;*/ /* Белый цвет текста */
-        /*padding: 1rem 1.5rem;*/ /* Поля вокруг текста */
-        /*text-decoration: none;*/ /* Убираем подчёркивание */
-        /*border-radius: 3px;*/ /* Скругляем уголки */
-        /*margin-right: 10px;
+    /*background: #8C959D;*/ /* Серый цвет фона */
+    /*color: #fff;*/ /* Белый цвет текста */
+    /*padding: 1rem 1.5rem;*/ /* Поля вокруг текста */
+    /*text-decoration: none;*/ /* Убираем подчёркивание */
+    /*border-radius: 3px;*/ /* Скругляем уголки */
+    /*margin-right: 10px;
     }*/
 }
 /*
 .Arrow {
     content: ">";
 }*/
-/*li:before {
-
-}*/
-
-li::marker {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-    bottom: .5em;
-    width: 15px;
-    height: 0;
-    border-bottom: 1px solid #333;
+ul {
+    list-style: none;
 }
-/*
-li:hover {
-    content: "------";
-    color: green;
-}*/
 
+li::before {
+    content: "";
+    border-left: 3px solid black;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: -30px;
+}
+
+li::after {
+    content: "";
+    border-bottom: 3px solid black;
+    position: absolute;
+    top: 41px;
+    left: -30px;
+    width: 15px;
+}
+
+li {
+    position: relative;
+    padding-top: 20px;
+}
 
 
 /*ааптивная верстка*/
@@ -106,6 +113,9 @@ li:hover {
     margin-right: 10px;
 }
 /*toDoList*/
+.treeline {
+    list-style: none;
+}
 .treeline {
     .drop {
         position: relative;
