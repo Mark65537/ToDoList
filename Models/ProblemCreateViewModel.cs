@@ -19,6 +19,7 @@ namespace ToDoList21.Models
         public string Executors { get; set; }
 
         [Display(Name = "PlannedComplexityTime")]
+        [Range(0,int.MaxValue)]
         public int PlannedComplexityTime { get; set; }
         public int ProblemId { get; set; }
         public ProblemCreateViewModel()
