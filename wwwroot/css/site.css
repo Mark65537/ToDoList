@@ -58,6 +58,10 @@ li::after {
   width: 15px;
 }
 
+li:last-child::before {
+  height: 41px;
+}
+
 li {
   position: relative;
   padding-top: 20px;
