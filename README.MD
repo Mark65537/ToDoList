@@ -1,4 +1,9 @@
 ![SAAS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![Gulp](https://img.shields.io/badge/GULP-%23CF4647.svg?style=for-the-badge&logo=gulp&logoColor=white)
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
+![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+
 ![image](https://github.com/Mark65537/ToDoList21/blob/master/Screenshots/screenshot1.png)
 <h1>Описание</h1>
  Разработана система управления задачами. Система позволяет
@@ -26,7 +31,3 @@
 </p> Плановая трудоёмкость задачи
 </p> Фактическое время выполнения
 </p> Дата завершения
-
-<h1>Используемые технологии</h1>
-ASP.NET, .NET Core 2.1, Razor, gulp, scss, адаптивная верстка, partial view,
-Entity Framework, JQuery, Ajax, Bootstrap
