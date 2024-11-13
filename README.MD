@@ -4,7 +4,7 @@
 [![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)](https://dotnet.microsoft.com/en-us/)
 [![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)](https://getbootstrap.com/)
 
-![image](https://github.com/Mark65537/ToDoList21/blob/master/Screenshots/screenshot1.png)
+![image](https://github.com/Mark65537/ToDoList/blob/master/Screenshots/screenshot1.png)
 <h1>Описание</h1>
  Разработана система управления задачами. Система позволяет
 редактировать иерархию задач, а также проводить некоторые вычисления по их полям данных.
